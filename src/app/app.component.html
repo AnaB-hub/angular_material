@@ -24,7 +24,7 @@
 <!-- End Typography-->
 
 <!-- Button -->
-<div>
+<!-- <div>
   <button mat-button>Click me!</button>
   <button mat-raised-button>Click me!</button>
   <button mat-flat-button>Click me!</button>
@@ -42,6 +42,21 @@
   <button color="primary" mat-raised-button>Primary</button>
   <button color="accent" mat-raised-button>Accent</button>
   <button color="warn" mat-raised-button>Warn</button>
-</div>
+</div> -->
 <!-- disableRipple: tira o efeito ao clicar no botão -->
 <!-- End Button -->
+
+<!-- Button Toggle -->
+<div>
+  <mat-button-toggle #toggleBtn checked disableRipple disabled>Toggle</mat-button-toggle>
+  {{toggleBtn.checked}}
+</div>
+<div>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+    <mat-button-toggle value="angular">Angular</mat-button-toggle>
+    <mat-button-toggle value="react">React</mat-button-toggle>
+    <mat-button-toggle value="vue">Vue</mat-button-toggle>
+  </mat-button-toggle-group>
+  {{toggleGroup.value}}
+</div>
+<!-- End Button Toggle -->
