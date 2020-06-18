@@ -35,3 +35,7 @@ mat-sidenav {
 mat-grid-tile {
   background-color: lightblue;
 }
+
+mat-radio-button {
+  margin-right: 8px;
+}
