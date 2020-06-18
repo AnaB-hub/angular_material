@@ -9,6 +9,7 @@ export class AppComponent {
   title = "angularMaterial";
   notification = 0;
   showSpinner = false;
+  tst = true;
 
   opened = false;
 
