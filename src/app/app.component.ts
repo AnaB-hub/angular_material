@@ -2,7 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
 import { map, startWith } from "rxjs/operators";
-import { MatSnackBar } from "@angular/material";
+import { MatSnackBar, MatDialog } from "@angular/material";
+import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 
 @Component({
   selector: "app-root",
@@ -30,13 +31,22 @@ export class AppComponent implements OnInit {
   minDate = new Date();
   maxDate = new Date(2020, 5, 24);
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(""),
       map((value) => this._filter(value))
     );
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogExampleComponent, {
+      data: { name: "Ana" },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   dateFilter = (date) => {

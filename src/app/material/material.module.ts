@@ -25,6 +25,7 @@ import {
   MatNativeDateModule,
   MatTooltipModule,
   MatSnackBarModule,
+  MatDialogModule,
 } from "@angular/material";
 
 const material = [
@@ -53,6 +54,7 @@ const material = [
   MatNativeDateModule,
   MatTooltipModule,
   MatSnackBarModule,
+  MatDialogModule,
 ];
 
 @NgModule({
