@@ -10,6 +10,7 @@ export class AppComponent {
   notification = 0;
   showSpinner = false;
   tst = true;
+  selectedValue: string;
 
   opened = false;
 
