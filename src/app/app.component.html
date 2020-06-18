@@ -468,3 +468,11 @@
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div> -->
 <!-- End Data table -->
+
+<!-- Virtual Scrolling -->
+<cdk-virtual-scroll-viewport itemSize="100" class="container">
+  <div *cdkVirtualFor="let number of numbers" class="number">
+    {{ number }}
+  </div>
+</cdk-virtual-scroll-viewport>
+<!-- End Virtual Scrolling -->

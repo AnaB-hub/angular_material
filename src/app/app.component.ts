@@ -62,7 +62,13 @@ export class AppComponent implements OnInit {
   minDate = new Date();
   maxDate = new Date(2020, 5, 24);
 
-  constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
+  numbers = [];
+
+  constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {
+    for (let i = 0; i < 1000; i++) {
+      this.numbers.push(i);
+    }
+  }
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
