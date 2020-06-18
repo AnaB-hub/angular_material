@@ -5,18 +5,20 @@ import {
   MatIconModule,
   MatBadgeModule,
   MatProgressSpinnerModule,
+  MatToolbarModule,
 } from "@angular/material";
 
-const MaterialComponets = [
+const material = [
   MatButtonModule,
   MatButtonToggleModule,
   MatIconModule,
   MatBadgeModule,
   MatProgressSpinnerModule,
+  MatToolbarModule,
 ];
 
 @NgModule({
-  imports: [MaterialComponets],
-  exports: [MaterialComponets],
+  imports: [material],
+  exports: [material],
 })
 export class MaterialModule {}
