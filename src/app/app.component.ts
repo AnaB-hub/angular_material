@@ -1,8 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
 import { map, startWith } from "rxjs/operators";
-import { MatSnackBar, MatDialog, MatTableDataSource } from "@angular/material";
+import {
+  MatSnackBar,
+  MatDialog,
+  MatTableDataSource,
+  MatSort,
+} from "@angular/material";
 import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 
 export interface PeriodicElement {
@@ -33,6 +38,8 @@ export class AppComponent implements OnInit {
   displayedColumns: string[] = ["position", "name", "weight", "symbol"];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
   title = "angularMaterial";
   notification = 0;
   showSpinner = false;
@@ -56,6 +63,8 @@ export class AppComponent implements OnInit {
   constructor(private snackBar: MatSnackBar, private dialog: MatDialog) {}
 
   ngOnInit() {
+    this.dataSource.sort = this.sort;
+
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(""),
       map((value) => this._filter(value))
