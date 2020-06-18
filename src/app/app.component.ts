@@ -7,6 +7,7 @@ import {
   MatDialog,
   MatTableDataSource,
   MatSort,
+  MatPaginator,
 } from "@angular/material";
 import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 
@@ -39,6 +40,7 @@ export class AppComponent implements OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   title = "angularMaterial";
   notification = 0;
@@ -64,6 +66,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(""),
