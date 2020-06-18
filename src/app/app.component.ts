@@ -26,12 +26,20 @@ export class AppComponent implements OnInit {
   myControl = new FormControl();
   filteredOptions: Observable<string[]>;
 
+  minDate = new Date();
+  maxDate = new Date(2020, 5, 24);
+
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(""),
       map((value) => this._filter(value))
     );
   }
+
+  dateFilter = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
+  };
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
